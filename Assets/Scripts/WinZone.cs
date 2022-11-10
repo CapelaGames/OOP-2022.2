@@ -30,5 +30,11 @@ public class WinZone : Zone
         DisplayWinningText(marble.name);
         //optional
         //marble.SetActive(false);
+        //StartCoroutine(DisableWithDelay(marble));
+        StartCoroutine(DisableWithDelay(marble, 3f));
+
     }
+
+
+
 }
