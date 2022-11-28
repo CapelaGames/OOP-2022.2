@@ -8,6 +8,10 @@ public class WinZone : Zone
     [SerializeField] protected Text _winnerText;
     protected static List<GameObject> _winners;
 
+
+
+    public HighscoreManager highscore;
+
     protected void Start()
     {
         if (_winners == null)
@@ -15,6 +19,9 @@ public class WinZone : Zone
             _winners = new List<GameObject>();
         }
         _winnerText.text = "";
+
+        if (highscore == null)
+            highscore = FindObjectOfType<HighscoreManager>();
     }
     protected void DisplayWinningText(string marbleName)
     {
@@ -33,6 +40,7 @@ public class WinZone : Zone
         //StartCoroutine(DisableWithDelay(marble));
         StartCoroutine(DisableWithDelay(marble, 3f));
 
+        highscore.GameWon();
     }
 
 
